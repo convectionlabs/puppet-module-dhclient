@@ -1,0 +1,5 @@
+#!/bin/sh
+<% if ! @nsstring.to_s.strip.empty? %>
+# Iff new_domain_name_servers is set, insert any local overrides in front of them.
+[ -n "$new_domain_name_servers" ] && new_domain_name_servers="<%= $nsstring %> $new_domain_name_servers"
+<% end %>

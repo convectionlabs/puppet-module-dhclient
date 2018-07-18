@@ -1,0 +1,7 @@
+#!/bin/sh
+# Update Route53 DNS with my IP, based on the hostname in /etc/sysconfig/network
+case $reason in
+  BOUND|REBIND|REBOOT)
+    /usr/bin/aws-dns-update.py >>/var/log/aws-dns-update.log 2>&1
+  ;;
+esac

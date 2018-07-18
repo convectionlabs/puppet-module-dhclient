@@ -1,0 +1,9 @@
+timeout 300;
+
+<% if ! @nsstring.to_s.strip.empty? %>
+prepend domain-name-servers <%= @nsstring %>;
+<% end %>
+interface "<%= @interface %>" {
+    supersede domain-name "<%= @spath %>";
+};
+
